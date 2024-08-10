@@ -5,3 +5,4 @@ out
 .vs
 .vscode
 compile_commands.json
+.git*

@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
+message(STATUS "C++ Compiler: ${CMAKE_CXX_COMPILER}")
 project(CMakeSFMLProject LANGUAGES CXX)
-
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 
@@ -10,6 +11,7 @@ FetchContent_Declare(SFML
     GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
+set(CMAKE_C_FLAGS_DEBUG "-g -O0")
 add_executable(main src/main.cpp)
 target_link_libraries(main PRIVATE sfml-graphics)
 target_compile_features(main PRIVATE cxx_std_17)
